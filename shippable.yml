@@ -7,3 +7,4 @@ jdk:
   - "oraclejdk7"
 
   after_success: "-mvn clean install"
+  recipients: "-g.martyn2@nuigalway.ie"
