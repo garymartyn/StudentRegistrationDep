@@ -2,8 +2,9 @@
 language : java
 
 jdk:
-  - "openjdk8"
+  - "oraclejdk8"
 
 build:
   ci:
-    - mvn clean test
+    - mvn clean
+    - mvn test
