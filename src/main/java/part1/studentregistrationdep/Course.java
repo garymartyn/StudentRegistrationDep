@@ -24,9 +24,16 @@ public class Course {
         this.modules = theModules;
         this.startDate = start;
         this.endDate = finish;
+        this.setModuleInfo(theModules);
     }
 
     //Methods
+    public void setModuleInfo(ArrayList<Module> mods) {
+        for (int i = 0; i < mods.size(); i++) {
+            mods.get(i).setCourse(this);
+        }
+    }
+
     public void addModule(Module mod) {
         this.modules.add(mod);
     }

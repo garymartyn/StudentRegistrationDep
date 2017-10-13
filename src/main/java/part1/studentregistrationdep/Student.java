@@ -5,7 +5,7 @@
  */
 package part1.studentregistrationdep;
 
-import org.joda.time.*;
+import java.util.ArrayList;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 
@@ -21,22 +21,37 @@ public class Student {
     private String ID;
     private String username;
 
+    private ArrayList<Module> modules = new ArrayList<Module>();
+    private String course;
+
     /*Constructor*/
     public Student(String name, LocalDate DOB, String ID) {
         this.name = name;
-        System.out.println("made it here");
-
         LocalDate now = LocalDate.now();
         Years numYears = Years.yearsBetween(DOB, now);
-
         this.age = numYears.getYears();
-        System.out.println("heeeere");
         this.DOB = DOB;
         this.ID = ID;
         this.username = name + age;
     }
 
     /*Getters and Setters*/
+    public ArrayList<Module> getModules() {
+        return this.modules;
+    }
+
+    public void addModule(Module mod) {
+        this.modules.add(mod);
+    }
+
+    public void setCourse(String crs) {
+        this.course = crs;
+    }
+
+    public String getCourse() {
+        return this.course;
+    }
+
     public String getUsername() {
         return this.name + this.age;
     }

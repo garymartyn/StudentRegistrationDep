@@ -15,16 +15,33 @@ public class Module {
 
     private String name;
     private String ID;
-    private ArrayList<Student> students;//
+    private ArrayList<Student> students;
+    private Course course;
 
     public Module(String name, String ID, ArrayList<Student> studentsArray) {
 
         this.name = name;
         this.ID = ID;
         this.students = studentsArray;
+        this.updateStudentInfo(studentsArray);
+
     }
 
     //Methods
+    public void getStudentInfo() {
+        for (int i = 0; i < this.students.size(); i++) {
+//            students.get(i).getName();
+//            students.get(i).getID();
+            System.out.println("Student Name: " + students.get(i).getName() + " -ID : " + students.get(i).getID());
+        }
+    }
+
+    public void updateStudentInfo(ArrayList<Student> sts) {
+        for (int i = 0; i < sts.size(); i++) {
+            sts.get(i).addModule(this);
+        }
+    }
+
     //add add ArrayList<Student> to the students array
     public void addStudents(ArrayList<Student> studentsToAdd) {
         for (int i = 0; i < students.size(); i++) {
@@ -38,6 +55,14 @@ public class Module {
     }
 
     //getters and setters
+    public void setCourse(Course c) {
+        this.course = c;
+    }
+
+    public Course getCourse() {
+        return this.course;
+    }
+
     public String getName() {
         return name;
     }
